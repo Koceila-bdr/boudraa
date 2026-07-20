@@ -568,6 +568,11 @@ textarea:focus-visible {
   filter: drop-shadow(0 0 6px rgba(20,184,166,0.6));
 }
 
+.pipeline-badge-top {
+  bottom: auto;
+  top: 26px;
+}
+
 .pipeline-badge {
   position: absolute;
   bottom: 26px;
