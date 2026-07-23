@@ -1,26 +1,43 @@
+@{
+    // ------------------------------------------------------------------
+    // Portfolio — Boudraa Koceila — Data Analyst
+    // Page Razor statique : aucune logique serveur n'est nécessaire ici,
+    // le contenu provient directement du CV fourni.
+    // ------------------------------------------------------------------
+    Layout = null;
+    ViewData["Title"] = "Boudraa Koceila — Data Analyst";
+}
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Boudraa Koceila — Candidat Alternance Data Analyst</title>
-    <meta name="description" content="Portfolio de Boudraa Koceila, étudiant en Master de mathématiques appliquées, à la recherche d'une alternance Data Analyst. Data, Power BI, Python, SQL, automatisation n8n." />
+    <title>@ViewData["Title"]</title>
+    <meta name="description" content="Portfolio de Boudraa Koceila, étudiant en Master Mathématiques appliquées, à la recherche d'une alternance Data Analyst." />
 
-    <!-- Polices -->
+    <!-- Polices : Sora (titres), Inter (texte), JetBrains Mono (données / labels) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
+    <!-- Icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Styles du portfolio -->
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-    <!-- ============ NAVIGATION ============ -->
+    <!-- ============================== NAVIGATION ============================== -->
     <header class="navbar" id="navbar">
-        <div class="container nav-inner">
-            <a href="#hero" class="logo">Koceila<span>.</span></a>
+        <div class="container navbar-inner">
+            <a href="#hero" class="nav-logo">
+                <span class="nav-logo-mark">KB</span>
+                Koceila Boudraa
+            </a>
 
             <nav class="nav-links" id="navLinks">
+                <a href="#hero" class="active">Accueil</a>
                 <a href="#about">À propos</a>
                 <a href="#skills">Compétences</a>
                 <a href="#experience">Expériences</a>
@@ -30,285 +47,214 @@
             </nav>
 
             <div class="nav-cta">
-                <a href="document/CV.pdf" download class="btn btn-outline">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
-                    CV
+                <a href="document/CV.pdf" download class="btn btn-secondary">
+                    <i class="fa-solid fa-file-arrow-down"></i>
+                    <span class="btn-secondary-label">CV</span>
                 </a>
-                <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">
+                <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">
                     <span></span><span></span><span></span>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- ============ HERO ============ -->
+    <!-- ============================== HERO ============================== -->
     <section class="hero" id="hero">
-        <div class="hero-blob hero-blob-1"></div>
-        <div class="hero-blob hero-blob-2"></div>
-
-        <div class="container">
-            <div class="hero-content reveal">
-                <div class="hero-avatar-wrap">
-                    <div class="hero-avatar-ring"></div>
-                    <div class="hero-avatar">
-                        <img src="document/boudraa.koceila.jpg" alt="Boudraa Koceila" onerror="this.style.display='none'; this.parentElement.textContent='BK';" />
-                    </div>
-                </div>
-
-                <div class="hero-role"><span class="dot"></span>Candidat Alternance — Data Analyst</div>
-
-                <h1>Boudraa Koceila,<br>je transforme la <span class="accent-text">donnée</span> en décisions.</h1>
-
-                <p class="lead">Étudiant en Master de mathématiques appliquées (Algèbre appliquée et cryptographie, Université Paris-Saclay), à la recherche d'une alternance Data Analyst. J'aime construire des tableaux de bord clairs et automatiser les traitements pour transformer des données brutes en indicateurs de pilotage utiles.</p>
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="hero-eyebrow">Data Analyst · Mathématiques appliquées</span>
+                <h1 class="hero-title">
+                    Bonjour, je suis <span class="text-gradient">Koceila Boudraa</span>
+                </h1>
+                <p class="hero-role">Candidat en alternance — Data Analyst</p>
+                <p class="hero-pitch">
+                    Étudiant en Master Mathématiques appliquées (algèbre appliquée et cryptographie, Université Paris Saclay),
+                    je transforme des données brutes en décisions concrètes : SQL, Power BI, Python et automatisation
+                    au service de vos projets.
+                </p>
 
                 <div class="hero-actions">
                     <a href="#projects" class="btn btn-primary">
-                        Voir mes projets
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        <i class="fa-solid fa-diagram-project"></i> Voir mes projets
                     </a>
-                    <a href="document/CV.pdf" download class="btn btn-outline">
-                        Télécharger mon CV
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+                    <a href="document/CV.pdf" download class="btn btn-secondary">
+                        <i class="fa-solid fa-download"></i> Télécharger mon CV
                     </a>
                     <a href="#contact" class="btn btn-ghost">
-                        Me contacter
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        <i class="fa-solid fa-paper-plane"></i> Me contacter
                     </a>
                 </div>
 
-                <div class="hero-meta">
-                    <div class="hero-meta-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                        Noisiel (77)
-                    </div>
-                    <div class="hero-meta-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 7.89 5.26a2 2 0 0 0 2.22 0L21 8"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
-                        boudraakoceila9@gmail.com
-                    </div>
-                    <div class="hero-meta-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                        +33 7 59 03 52 00
-                    </div>
-                </div>
+                <ul class="hero-meta">
+                    <li><i class="fa-solid fa-location-dot"></i> Noisiel (77)</li>
+                    <li><i class="fa-solid fa-language"></i> Anglais courant</li>
+                    <li><i class="fa-solid fa-graduation-cap"></i> Université Paris Saclay</li>
+                </ul>
             </div>
 
-            <!-- Signature visuelle : pipeline de données animé (reflète le profil automatisation + data) -->
-            <div class="hero-visual reveal">
-                <div class="pipeline-card">
-                    <svg class="pipeline-svg" viewBox="0 0 420 420" preserveAspectRatio="xMidYMid meet">
-                        <defs>
-                            <linearGradient id="pipelineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#2E6FF2"/>
-                                <stop offset="55%" stop-color="#14B8A6"/>
-                                <stop offset="100%" stop-color="#8B7CF9"/>
-                            </linearGradient>
-                        </defs>
+            <div class="hero-visual">
+                <canvas id="hero-canvas" aria-hidden="true"></canvas>
 
-                        <!-- Lignes de flux -->
-                        <path class="pipeline-line" d="M100,90 C160,90 150,150 210,150" />
-                        <path class="pipeline-line" d="M100,210 C160,210 150,150 210,150" />
-                        <path class="pipeline-line" d="M100,330 C160,330 150,150 210,150" />
-                        <path class="pipeline-line" d="M210,150 C270,150 260,210 320,210" />
-
-                        <!-- Noeuds source -->
-                        <g>
-                            <rect class="pipeline-node" x="40" y="65" width="80" height="50" rx="14"/>
-                            <text class="pipeline-node-label" x="80" y="94" text-anchor="middle">SQL</text>
-                        </g>
-                        <g>
-                            <rect class="pipeline-node" x="40" y="185" width="80" height="50" rx="14"/>
-                            <text class="pipeline-node-label" x="80" y="214" text-anchor="middle">Python</text>
-                        </g>
-                        <g>
-                            <rect class="pipeline-node" x="40" y="305" width="80" height="50" rx="14"/>
-                            <text class="pipeline-node-label" x="80" y="334" text-anchor="middle">n8n</text>
-                        </g>
-
-                        <!-- Noeud central -->
-                        <g>
-                            <circle class="pipeline-node" cx="210" cy="150" r="34"/>
-                            <text class="pipeline-node-label" x="210" y="154" text-anchor="middle">ETL</text>
-                        </g>
-
-                        <!-- Noeud sortie -->
-                        <g>
-                            <rect class="pipeline-node" x="300" y="180" width="80" height="60" rx="14"/>
-                            <text class="pipeline-node-label" x="340" y="206" text-anchor="middle">Power</text>
-                            <text class="pipeline-node-label" x="340" y="222" text-anchor="middle">BI</text>
-                        </g>
-
-                        <!-- Paquets de données animés -->
-                        <circle class="pipeline-packet" r="4">
-                            <animateMotion dur="2.4s" repeatCount="indefinite" path="M100,90 C160,90 150,150 210,150" />
-                        </circle>
-                        <circle class="pipeline-packet" r="4">
-                            <animateMotion dur="2.8s" repeatCount="indefinite" path="M100,210 C160,210 150,150 210,150" />
-                        </circle>
-                        <circle class="pipeline-packet" r="4">
-                            <animateMotion dur="3.2s" repeatCount="indefinite" path="M100,330 C160,330 150,150 210,150" />
-                        </circle>
-                        <circle class="pipeline-packet" r="4">
-                            <animateMotion dur="2s" repeatCount="indefinite" path="M210,150 C270,150 260,210 320,210" />
-                        </circle>
-                    </svg>
-
-                    <div class="pipeline-badge pipeline-badge-top">
-                        <div class="pipeline-badge-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
-                        </div>
-                        <div>
-                            <strong>Data → Dashboard</strong>
-                            <span>Collecte, nettoyage, automatisation & visualisation</span>
-                        </div>
+                <div class="hero-photo-frame">
+                    <!-- Emplacement prévu pour la photo de profil -->
+                    <!-- Remplacer le bloc ci-dessous par : <img src="images/photo.jpg" alt="Photo de Koceila Boudraa" /> -->
+                    <div class="hero-photo-placeholder">
+                        Photo de profil<br />(300 × 340 px)
                     </div>
+                </div>
 
-                    <div class="pipeline-badge">
-                        <div class="pipeline-badge-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
-                        </div>
-                        <div>
-                            <strong>Data → Dashboard</strong>
-                            <span>Collecte, nettoyage, automatisation & visualisation</span>
-                        </div>
-                    </div>
+                <div class="hero-badge hero-badge-1">
+                    <i class="fa-solid fa-chart-line"></i> Power BI
+                </div>
+                <div class="hero-badge hero-badge-2">
+                    <i class="fa-solid fa-database"></i> SQL &amp; Python
                 </div>
             </div>
         </div>
+
+        <div class="scroll-cue">
+            <span>Défiler</span>
+            <span class="scroll-cue-line"></span>
+        </div>
     </section>
 
-    <!-- ============ À PROPOS ============ -->
-    <section id="about">
+    <!-- ============================== À PROPOS ============================== -->
+    <section class="about" id="about">
         <div class="container">
+            <div class="section-header reveal">
+                <span class="eyebrow">À propos</span>
+                <h2 class="section-title">Une approche rigoureuse de la donnée</h2>
+            </div>
+
             <div class="about-grid">
-                <div class="section-head reveal">
-                    <div class="eyebrow">À propos</div>
-                    <h2 class="section-title">Rigueur mathématique, curiosité data.</h2>
-                    <div class="about-text">
-                        <p>Actuellement en <strong>Master d'algèbre appliquée et cryptographie</strong> à l'Université Paris-Saclay, je poursuis un parcours en mathématiques appliquées après un <strong>Master 2 en Mathématiques et Informatique à l'USTHB</strong>, obtenu avec la mention très bien.</p>
-                        <p>J'ai une expérience concrète en <strong>analyse et modélisation de données</strong> (SQL, Power BI, Python) et dans la <strong>construction de tableaux de bord décisionnels</strong>. Rigoureux, autonome et doté d'un bon relationnel, je souhaite mettre mes compétences quantitatives au service de projets Data Analyst en alternance.</p>
+                <div class="about-text reveal">
+                    <p>
+                        Étudiant en Master Mathématiques appliquées, actuellement en algèbre appliquée et cryptographie
+                        à l'Université Paris Saclay, je suis à la recherche d'une alternance Data Analyst.
+                    </p>
+                    <p>
+                        J'ai une expérience concrète en analyse et modélisation de données (SQL, Power BI, Python)
+                        et en construction de tableaux de bord décisionnels. Rigoureux, autonome et doté d'un excellent
+                        relationnel, je souhaite mettre mes compétences quantitatives au service de vos projets et du
+                        développement de votre entreprise.
+                    </p>
+
+                    <div class="about-interests">
+                        <span class="chip"><i class="fa-solid fa-basketball"></i> Basket-ball (compétition, 10 ans)</span>
+                        <span class="chip"><i class="fa-solid fa-robot"></i> Veille sur l'IA générative</span>
+                        <span class="chip"><i class="fa-solid fa-gamepad"></i> Manga &amp; jeux vidéo</span>
                     </div>
                 </div>
 
                 <div class="about-highlights reveal">
-                    <div class="highlight-card">
-                        <div class="highlight-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2h-5L7 6.5v11L9.5 22h5l2.5-4.5v-11z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+                    <div class="card highlight-card">
+                        <div class="highlight-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div>
+                            <h4>Master Mathématiques appliquées</h4>
+                            <p>Algèbre appliquée et cryptographie — Université Paris Saclay</p>
                         </div>
-                        <h4>Rigueur scientifique</h4>
-                        <p>Approche méthodique héritée de la recherche opérationnelle et de la modélisation mathématique.</p>
                     </div>
-                    <div class="highlight-card">
-                        <div class="highlight-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+                    <div class="card highlight-card">
+                        <div class="highlight-icon"><i class="fa-solid fa-chart-simple"></i></div>
+                        <div>
+                            <h4>Data &amp; BI</h4>
+                            <p>SQL, Power BI et Python appliqués à l'analyse décisionnelle</p>
                         </div>
-                        <h4>Autonomie & adaptabilité</h4>
-                        <p>Capacité à s'adapter rapidement à de nouveaux outils, contextes et équipes.</p>
                     </div>
-                    <div class="highlight-card">
-                        <div class="highlight-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <div class="card highlight-card">
+                        <div class="highlight-icon"><i class="fa-solid fa-comments"></i></div>
+                        <div>
+                            <h4>Anglais courant</h4>
+                            <p>Aisance à l'écrit comme à l'oral, échanges en environnement international</p>
                         </div>
-                        <h4>Esprit d'équipe</h4>
-                        <p>Dix années de basket-ball en compétition : sens du collectif et de la rigueur.</p>
-                    </div>
-                    <div class="highlight-card">
-                        <div class="highlight-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-                        </div>
-                        <h4>Sens du résultat</h4>
-                        <p>Indicateurs chiffrés de visibilité et d'audience pilotés au quotidien.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============ COMPÉTENCES ============ -->
-    <section id="skills" class="section-alt">
+    <!-- ============================== COMPÉTENCES ============================== -->
+    <section class="skills" id="skills">
         <div class="container">
-            <div class="section-head reveal">
-                <div class="eyebrow">Compétences</div>
-                <h2 class="section-title">Ma boîte à outils Data.</h2>
-                <p class="section-intro">Un socle technique construit autour de la donnée : analyse, visualisation, automatisation et programmation.</p>
+            <div class="section-header reveal">
+                <span class="eyebrow">Compétences</span>
+                <h2 class="section-title">Ma boîte à outils</h2>
+                <p class="section-subtitle">Compétences issues de mon parcours académique et professionnel.</p>
             </div>
 
-            <div class="skills-groups reveal reveal-stagger">
-                <div class="skill-group" style="--i:0">
-                    <div class="skill-group-head">
-                        <div class="skill-group-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>
-                        </div>
-                        <h3>Data & BI</h3>
-                    </div>
+            <div class="skills-groups reveal-stagger">
+                <div class="card skill-group">
+                    <h3 class="skill-group-title"><i class="fa-solid fa-database"></i> Data &amp; BI</h3>
                     <div class="skill-badges">
-                        <span class="badge">Power BI</span>
-                        <span class="badge">SQL</span>
-                        <span class="badge">Python</span>
-                        <span class="badge">Nettoyage de données</span>
-                        <span class="badge">Détection d'anomalies</span>
-                        <span class="badge">Indicateurs de pilotage</span>
+                        <span class="badge"><i class="fa-solid fa-code"></i>SQL</span>
+                        <span class="badge"><i class="fa-solid fa-chart-column"></i>Power BI</span>
+                        <span class="badge"><i class="fa-brands fa-python"></i>Python</span>
                     </div>
                 </div>
 
-                <div class="skill-group" style="--i:1">
-                    <div class="skill-group-head">
-                        <div class="skill-group-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                        </div>
-                        <h3>Programmation & Dev</h3>
-                    </div>
+                <div class="card skill-group">
+                    <h3 class="skill-group-title"><i class="fa-solid fa-code"></i> Programmation</h3>
                     <div class="skill-badges">
-                        <span class="badge">Python</span>
-                        <span class="badge">SQL</span>
-                        <span class="badge">JavaScript</span>
-                        <span class="badge">HTML</span>
-                        <span class="badge">CSS</span>
+                        <span class="badge"><i class="fa-brands fa-python"></i>Python</span>
+                        <span class="badge"><i class="fa-solid fa-code"></i>SQL</span>
+                        <span class="badge"><i class="fa-brands fa-js"></i>JavaScript</span>
+                        <span class="badge"><i class="fa-brands fa-html5"></i>HTML / CSS</span>
                     </div>
                 </div>
 
-                <div class="skill-group" style="--i:2">
-                    <div class="skill-group-head">
-                        <div class="skill-group-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg>
-                        </div>
-                        <h3>IA & Automatisation</h3>
-                    </div>
+                <div class="card skill-group">
+                    <h3 class="skill-group-title"><i class="fa-solid fa-robot"></i> Automatisation &amp; IA</h3>
                     <div class="skill-badges">
-                        <span class="badge">n8n (workflows)</span>
-                        <span class="badge">Intégration API REST</span>
-                        <span class="badge">Prompt Engineering</span>
-                        <span class="badge">Notions RAG</span>
-                        <span class="badge">Veille LLM (Claude, Anthropic)</span>
+                        <span class="badge"><i class="fa-solid fa-diagram-project"></i>n8n</span>
+                        <span class="badge"><i class="fa-solid fa-plug"></i>API REST</span>
+                        <span class="badge"><i class="fa-solid fa-wand-magic-sparkles"></i>Prompt Engineering</span>
+                        <span class="badge"><i class="fa-solid fa-brain"></i>Notions RAG</span>
                     </div>
                 </div>
-            </div>
 
-            <div class="softskills-row reveal">
-                <span class="badge">Rigueur scientifique</span>
-                <span class="badge">Autonomie</span>
-                <span class="badge">Capacité d'adaptation</span>
-                <span class="badge">Sens du résultat</span>
-                <span class="badge">Esprit d'équipe</span>
-                <span class="badge">Français courant</span>
-                <span class="badge">Anglais courant</span>
+                <div class="card skill-group">
+                    <h3 class="skill-group-title"><i class="fa-solid fa-magnifying-glass-chart"></i> Analyse de données</h3>
+                    <div class="skill-badges">
+                        <span class="badge"><i class="fa-solid fa-broom"></i>Nettoyage</span>
+                        <span class="badge"><i class="fa-solid fa-triangle-exclamation"></i>Détection d'anomalies</span>
+                        <span class="badge"><i class="fa-solid fa-gauge-high"></i>Indicateurs de pilotage</span>
+                    </div>
+                </div>
+
+                <div class="card skill-group">
+                    <h3 class="skill-group-title"><i class="fa-solid fa-people-group"></i> Savoir-être</h3>
+                    <div class="skill-badges">
+                        <span class="badge"><i class="fa-solid fa-scale-balanced"></i>Rigueur</span>
+                        <span class="badge"><i class="fa-solid fa-user-check"></i>Autonomie</span>
+                        <span class="badge"><i class="fa-solid fa-people-arrows"></i>Esprit d'équipe</span>
+                        <span class="badge"><i class="fa-solid fa-arrows-rotate"></i>Adaptabilité</span>
+                    </div>
+                </div>
+
+                <div class="card skill-group">
+                    <h3 class="skill-group-title"><i class="fa-solid fa-globe"></i> Langues</h3>
+                    <div class="skill-badges">
+                        <span class="badge"><i class="fa-solid fa-check"></i>Français courant</span>
+                        <span class="badge"><i class="fa-solid fa-check"></i>Anglais courant</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ============ EXPÉRIENCES ============ -->
-    <section id="experience">
+    <!-- ============================== EXPÉRIENCES ============================== -->
+    <section class="experience" id="experience">
         <div class="container">
-            <div class="section-head reveal">
-                <div class="eyebrow">Parcours</div>
-                <h2 class="section-title">Expériences professionnelles.</h2>
-                <p class="section-intro">Des expériences variées, du terrain à l'analyse de données, qui nourrissent une même exigence de rigueur et de résultat.</p>
+            <div class="section-header reveal">
+                <span class="eyebrow">Parcours</span>
+                <h2 class="section-title">Expériences professionnelles</h2>
             </div>
 
-            <div class="timeline reveal">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-card">
-                        <span class="timeline-date">Sep. 2024 – Sep. 2025</span>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <span class="timeline-dot"></span>
+                    <div class="card timeline-card">
+                        <span class="timeline-date">Sep. 2024 — Sep. 2025</span>
                         <h3>Responsable polyvalent</h3>
                         <span class="org">Kitcho</span>
                         <ul>
@@ -318,10 +264,10 @@
                     </div>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-card">
-                        <span class="timeline-date">Jan. – Juil. 2024</span>
+                <div class="timeline-item reveal">
+                    <span class="timeline-dot"></span>
+                    <div class="card timeline-card">
+                        <span class="timeline-date">Jan. 2024 — Juil. 2024</span>
                         <h3>Stagiaire — Optimisation du portefeuille de projets</h3>
                         <span class="org">Sonatrach</span>
                         <ul>
@@ -331,22 +277,23 @@
                     </div>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-card">
-                        <span class="timeline-date">Juil. 2022 – Sep. 2025</span>
-                        <h3>Créateur de contenu & Manager digital</h3>
+                <div class="timeline-item reveal">
+                    <span class="timeline-dot"></span>
+                    <div class="card timeline-card">
+                        <span class="timeline-date">Juil. 2022 — Sep. 2025</span>
+                        <h3>Créateur de contenu &amp; Manager digital</h3>
                         <span class="org">Communauté de 1M followers</span>
                         <ul>
-                            <li>Analysé les indicateurs d'audience pour optimiser le taux de clic et la portée des contenus, et géré les partenariats associés.</li>
+                            <li>Analysé les indicateurs d'audience pour optimiser le taux de clic et la portée des contenus.</li>
+                            <li>Géré les partenariats associés à l'activité de création de contenu.</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-card">
-                        <span class="timeline-date">Déc. 2021 – Mai 2022</span>
+                <div class="timeline-item reveal">
+                    <span class="timeline-dot"></span>
+                    <div class="card timeline-card">
+                        <span class="timeline-date">Déc. 2021 — Mai 2022</span>
                         <h3>Chargé de clientèle</h3>
                         <span class="org">Immar Call Center</span>
                         <ul>
@@ -359,212 +306,202 @@
         </div>
     </section>
 
-    <!-- ============ FORMATION ============ -->
-    <section id="education" class="section-alt">
+    <!-- ============================== FORMATION ============================== -->
+    <section class="education" id="education">
         <div class="container">
-            <div class="section-head reveal">
-                <div class="eyebrow">Formation</div>
-                <h2 class="section-title">Un socle académique en mathématiques.</h2>
+            <div class="section-header reveal">
+                <span class="eyebrow">Formation</span>
+                <h2 class="section-title">Diplômes &amp; formations</h2>
             </div>
 
-            <div class="education-grid reveal reveal-stagger">
-                <div class="edu-card" style="--i:0">
-                    <div class="edu-card-top">
-                        <div class="edu-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                        </div>
-                        <span class="edu-period">Sep. 2025 – Juin 2026</span>
-                    </div>
+            <div class="education-grid reveal-stagger">
+                <div class="card education-card">
+                    <div class="cap-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <span class="dates">Sep. 2025 — Juin 2026</span>
                     <h3>Master — Algèbre appliquée et cryptographie</h3>
-                    <span class="school">Université Paris-Saclay</span>
+                    <span class="school">Université Paris Saclay</span>
                     <p>Chiffrement RSA/DES, fonctions de hachage et d'intégrité ; fondements mathématiques de la cryptographie.</p>
                 </div>
 
-                <div class="edu-card" style="--i:1">
-                    <div class="edu-card-top">
-                        <div class="edu-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                        </div>
-                        <span class="edu-period">Sep. 2022 – Juin 2024</span>
-                    </div>
+                <div class="card education-card">
+                    <div class="cap-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <span class="dates">Sep. 2022 — Juin 2024</span>
                     <h3>Master 2 — Mathématiques et Informatique</h3>
                     <span class="school">USTHB</span>
                     <p>Recherche opérationnelle, optimisation combinatoire, modélisation mathématique en Python et C++.</p>
-                    <span class="edu-mention">Mention très bien</span>
+                    <span class="mention-tag">Mention très bien</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============ PROJETS ============ -->
-    <section id="projects">
+    <!-- ============================== PROJETS ============================== -->
+    <section class="projects" id="projects">
         <div class="container">
-            <div class="section-head reveal">
-                <div class="eyebrow">Projets</div>
-                <h2 class="section-title">Projets académiques.</h2>
-                <p class="section-intro">Des projets menés dans le cadre de ma formation, appliqués à des problématiques de données, d'optimisation et d'automatisation.</p>
+            <div class="section-header reveal">
+                <span class="eyebrow">Projets</span>
+                <h2 class="section-title">Projets académiques &amp; personnels</h2>
+                <p class="section-subtitle">
+                    Les visuels, dépôts GitHub et démos seront ajoutés au fur et à mesure. Voir les commentaires du code
+                    pour compléter chaque carte facilement.
+                </p>
             </div>
 
-            <div class="projects-grid reveal reveal-stagger">
-                <div class="project-card" style="--i:0">
-                    <div class="project-thumb">
-                        <span class="project-tag">Projet académique</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
-                    </div>
+            <div class="projects-grid reveal-stagger">
+
+                <!-- Carte projet 1 -->
+                <div class="card project-card">
+                    <div class="project-thumb"><i class="fa-solid fa-industry"></i></div>
                     <div class="project-body">
                         <h3>Optimisation des systèmes industriels et logistiques</h3>
-                        <p>Planification intégrant PDP, JIT, MRP et OPT, avec propositions de solutions pour optimiser l'efficacité de la production — démarche d'analyse et de résolution de problèmes appliquée à des données de production.</p>
-                        <div class="project-tech">
-                            <span class="badge">Recherche opérationnelle</span>
-                            <span class="badge">Modélisation</span>
+                        <p>Planification intégrant PDP, JIT, MRP et OPT, avec propositions de solutions pour optimiser l'efficacité de la production.</p>
+                        <div class="project-tags">
+                            <span>Recherche opérationnelle</span>
+                            <span>Python</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" aria-disabled="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>GitHub</a>
+                            <!-- TODO : remplacer "#" par le lien réel du dépôt GitHub -->
+                            <a href="#" class="btn btn-secondary" aria-disabled="true"><i class="fa-brands fa-github"></i> GitHub</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card" style="--i:1">
-                    <div class="project-thumb">
-                        <span class="project-tag">Formation n8n</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/></svg>
-                    </div>
+                <!-- Carte projet 2 -->
+                <div class="card project-card">
+                    <div class="project-thumb"><i class="fa-solid fa-diagram-project"></i></div>
                     <div class="project-body">
-                        <h3>Automatisation de processus</h3>
-                        <p>Conception de workflows automatisés via n8n et intégration d'API pour connecter différentes applications métiers.</p>
-                        <div class="project-tech">
-                            <span class="badge">n8n</span>
-                            <span class="badge">API REST</span>
+                        <h3>Automatisation de processus avec n8n</h3>
+                        <p>Conception de workflows automatisés et intégration d'API pour connecter différentes applications métiers.</p>
+                        <div class="project-tags">
+                            <span>n8n</span>
+                            <span>API REST</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" aria-disabled="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>GitHub</a>
+                            <a href="#" class="btn btn-secondary" aria-disabled="true"><i class="fa-brands fa-github"></i> GitHub</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card" style="--i:2">
-                    <div class="project-thumb">
-                        <span class="project-tag">Cryptographie</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                    </div>
+                <!-- Carte projet 3 -->
+                <div class="card project-card">
+                    <div class="project-thumb"><i class="fa-solid fa-shield-halved"></i></div>
                     <div class="project-body">
                         <h3>Analyse de vulnérabilité et extraction de clé cryptographique (DFA)</h3>
                         <p>Définition et implémentation de contre-mesures logicielles garantissant l'intégrité du système.</p>
-                        <div class="project-tech">
-                            <span class="badge">Cryptographie</span>
-                            <span class="badge">Sécurité</span>
+                        <div class="project-tags">
+                            <span>Cryptographie</span>
+                            <span>Sécurité</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" aria-disabled="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>GitHub</a>
+                            <a href="#" class="btn btn-secondary" aria-disabled="true"><i class="fa-brands fa-github"></i> GitHub</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card" style="--i:3">
-                    <div class="project-thumb">
-                        <span class="project-tag">Web</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></svg>
-                    </div>
+                <!-- Carte projet 4 -->
+                <div class="card project-card">
+                    <div class="project-thumb"><i class="fa-solid fa-cart-shopping"></i></div>
                     <div class="project-body">
-                        <h3>Création et gestion de sites web e-commerce</h3>
+                        <h3>Site web e-commerce</h3>
                         <p>Conception d'interface, intégration de catalogues produits et configuration du tunnel de paiement.</p>
-                        <div class="project-tech">
-                            <span class="badge">HTML</span>
-                            <span class="badge">CSS</span>
-                            <span class="badge">JavaScript</span>
+                        <div class="project-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" aria-disabled="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>GitHub</a>
+                            <a href="#" class="btn btn-secondary" aria-disabled="true"><i class="fa-brands fa-github"></i> GitHub</a>
+                            <a href="#" class="btn btn-ghost" aria-disabled="true"><i class="fa-solid fa-arrow-up-right-from-square"></i> Démo</a>
                         </div>
                     </div>
                 </div>
+
             </div>
 
-            <p class="project-note">// D'autres projets et liens (GitHub, démo) seront ajoutés prochainement.</p>
+            <p class="projects-note">// Ajoutez de nouvelles cartes .project-card dans index.cshtml pour vos futurs projets</p>
         </div>
     </section>
 
-    <!-- ============ CONTACT ============ -->
-    <section id="contact" class="section-alt">
+    <!-- ============================== CONTACT ============================== -->
+    <section class="contact" id="contact">
         <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info reveal">
-                    <div class="eyebrow">Contact</div>
-                    <h2 class="section-title">Discutons de votre alternance.</h2>
-                    <p>Disponible pour un poste en alternance Data Analyst. N'hésitez pas à me contacter directement ou via le formulaire.</p>
+            <div class="section-header reveal">
+                <span class="eyebrow">Contact</span>
+                <h2 class="section-title">Discutons de votre projet</h2>
+                <p class="section-subtitle">Disponible pour une alternance Data Analyst — n'hésitez pas à me contacter.</p>
+            </div>
 
-                    <div class="contact-list">
+            <div class="contact-grid">
+                <div class="card contact-info-card reveal">
+                    <h3>Restons en contact</h3>
+                    <p>Je réponds généralement sous 24 à 48h. À très vite !</p>
+
+                    <div class="contact-channels">
                         <a href="mailto:boudraakoceila9@gmail.com">
-                            <span class="contact-list-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 7.89 5.26a2 2 0 0 0 2.22 0L21 8"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
-                            </span>
-                            boudraakoceila9@gmail.com
+                            <i class="fa-solid fa-envelope"></i> boudraakoceila9@gmail.com
                         </a>
                         <a href="tel:+33759035200">
-                            <span class="contact-list-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                            </span>
-                            +33 7 59 03 52 00
+                            <i class="fa-solid fa-phone"></i> +33 7 59 03 52 00
                         </a>
-                        <a href="#">
-                            <span class="contact-list-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                            </span>
-                            Noisiel (77), France
-                        </a>
+                        <span>
+                            <i class="fa-solid fa-location-dot"></i> Noisiel (77), France
+                        </span>
                     </div>
 
-                    <div class="social-row">
-                        <a href="#" class="social-icon" aria-label="GitHub" title="GitHub — lien à compléter">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                        </a>
-                        <a href="#" class="social-icon" aria-label="LinkedIn" title="LinkedIn — lien à compléter">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                        </a>
-                        <a href="mailto:boudraakoceila9@gmail.com" class="social-icon" aria-label="Email">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 7.89 5.26a2 2 0 0 0 2.22 0L21 8"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
-                        </a>
-                        <a href="tel:+33759035200" class="social-icon" aria-label="Téléphone">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                        </a>
+                    <div class="social-icons">
+                        <!-- TODO : ajouter le lien réel du profil GitHub -->
+                        <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <!-- TODO : ajouter le lien réel du profil LinkedIn -->
+                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="mailto:boudraakoceila9@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="tel:+33759035200" aria-label="Téléphone"><i class="fa-solid fa-phone"></i></a>
                     </div>
                 </div>
 
-                <form class="contact-form reveal" id="contactForm" onsubmit="return false;">
+                <form class="card contact-form reveal" id="contactForm" novalidate>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Nom</label>
                             <input type="text" id="name" name="name" placeholder="Votre nom" required />
+                            <span class="form-error">Veuillez indiquer votre nom.</span>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" id="email" name="email" placeholder="vous@exemple.com" required />
+                            <span class="form-error">Veuillez indiquer un email valide.</span>
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="6" placeholder="Votre message..." required></textarea>
+                        <textarea id="message" name="message" placeholder="Votre message..." required></textarea>
+                        <span class="form-error">Veuillez écrire un message.</span>
                     </div>
-                    <button type="submit" class="btn btn-primary" id="formSubmit">
-                        Envoyer le message
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa-solid fa-paper-plane"></i> Envoyer le message
                     </button>
+
                     <p class="form-status" id="formStatus"></p>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- ============ FOOTER ============ -->
-    <footer class="footer">
+    <!-- ============================== FOOTER ============================== -->
+    <footer class="site-footer">
         <div class="container footer-inner">
-            <p>&copy; <span id="year"></span> Boudraa Koceila. Tous droits réservés.</p>
-            <p>Conçu et développé avec ASP.NET Razor.</p>
+            <p>&copy; <span id="year"></span> Boudraa Koceila — Tous droits réservés.</p>
+            <div class="footer-socials">
+                <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="mailto:boudraakoceila9@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
         </div>
     </footer>
 
     <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+        <i class="fa-solid fa-arrow-up"></i>
     </button>
 
     <script src="js/script.js"></script>
