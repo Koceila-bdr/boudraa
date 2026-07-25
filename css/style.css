@@ -532,9 +532,10 @@ textarea:focus-visible {
 
 .pipeline-svg {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  top: 24px;
+  left: 24px;
+  right: 24px;
+  bottom: 140px; /* réserve la place du badge en dessous */
 }
 
 .pipeline-node {
