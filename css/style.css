@@ -532,10 +532,11 @@ textarea:focus-visible {
 
 .pipeline-svg {
   position: absolute;
-  top: 24px;
+  top: 0; /* On enlève l'espace en haut (c'était 24px) */
   left: 24px;
   right: 24px;
-  bottom: 140px; /* réserve la place du badge en dessous */
+  bottom: 150px; /* On augmente un peu la marge en bas (c'était 140px) */
+  transform: translateY(-25px); /* On force le schéma à remonter de 25 pixels */
 }
 
 .pipeline-node {
